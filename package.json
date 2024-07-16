@@ -1,5 +1,5 @@
 {
-  "name": "absolute-altitude",
+  "name": "balraj-lab",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -10,8 +10,10 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^4.11.5",
     "@astrojs/check": "^0.8.1",
+    "astro": "^4.11.5"
+  },
+  "devDependencies": {
     "typescript": "^5.5.3"
   }
 }
