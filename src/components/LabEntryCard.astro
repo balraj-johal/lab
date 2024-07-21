@@ -1,0 +1,23 @@
+---
+import { Image } from "astro:assets";
+import myImage from "../assets/crab.png";
+
+interface Props {
+  title: string;
+  destination: string;
+  image?: ImageMetadata;
+  description?: string;
+}
+
+const { title, description, image, destination } = Astro.props;
+---
+
+<li class="lab-entry-card">
+  <a href={destination}>
+    <h2>{title}</h2>
+    {description && <p>{description}</p>}
+    {image && <Image src={myImage} alt="" />}
+  </a>
+</li>
+
+<style lang="scss"></style>

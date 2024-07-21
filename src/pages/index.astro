@@ -1,19 +1,28 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Test from "../components/Test.astro";
+import LabEntryCard from "../components/LabEntryCard.astro";
+import { getCollection } from "astro:content";
+
+const entries = await getCollection("lab");
+console.log(entries);
 ---
 
 <Layout
   title="Balraj Johal | Lab"
   description="Some assorted experiments I've done"
 >
-  <main>
-    <h1>Balraj Johal | Lab</h1>
-    <ul role="list" class="link-card-grid">
-      <Test title="Documentation" />
-      <Test title="Integrations" />
-    </ul>
-  </main>
+  <h1>Balraj Johal | Lab</h1>
+  <ul role="list" class="link-card-grid">
+    {
+      entries.map((entry) => {
+        const destination = entry.slug;
+        const cover = entry.data.cover;
+        return (
+          <LabEntryCard title="OGL" destination={destination} image={cover} />
+        );
+      })
+    }
+  </ul>
 </Layout>
 
 <style lang="scss"></style>
